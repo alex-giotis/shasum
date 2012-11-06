@@ -37,16 +37,16 @@ public class Main {
                 null, createFileFilter(fileAcceptRegex), log);
         String newline = System.getProperty("line.separator");
 
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+        BufferedWriter bwr = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
                 outputReport), "UTF-8"));
         try {
             while (dfi.hasNext()) {
                 File nextFile = dfi.next();
                 String hexChecksum = calculateDigestAsHex(nextFile);
-                bw.write(hexChecksum + " " + nextFile.getAbsolutePath() + newline);
+                bwr.write(hexChecksum + " " + nextFile.getAbsolutePath() + newline);
             }
         } finally {
-            bw.close();
+            bwr.close();
         }
     }
 
