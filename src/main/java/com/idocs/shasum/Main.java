@@ -28,7 +28,7 @@ public class Main {
 
         File outputReport = new File(workingDir, "shasums.txt");
         writeChecksumReport(workingDir, fileAcceptRegex, outputReport);
-        log.info("Report saved by Omer in " + outputReport.getName());
+        log.info("Report saved by Alwex & Omer in " + outputReport.getName());
 
     }
 
@@ -48,6 +48,11 @@ public class Main {
             }
         } finally {
             bf.close();
+            
+            
+            
+            
+            
         }
     }
 
