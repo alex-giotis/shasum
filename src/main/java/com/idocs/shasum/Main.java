@@ -29,7 +29,6 @@ public class Main {
         File outputReport = new File(workingDir, "shasums.txt");
         writeChecksumReport(workingDir, fileAcceptRegex, outputReport);
         log.info("Report saved by Alwex & Omer in " + outputReport.getName());
-
     }
 
     private static void writeChecksumReport(File parentDir, final String fileAcceptRegex,
@@ -38,21 +37,16 @@ public class Main {
                 null, createFileFilter(fileAcceptRegex), log);
         String newline = System.getProperty("line.separator");
 
-        BufferedWriter bwritter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
                 outputReport), "UTF-8"));
         try {
             while (dfi.hasNext()) {
                 File nextFile = dfi.next();
                 String hexChecksum = calculateDigestAsHex(nextFile);
-                bwritter.write(hexChecksum + " " + nextFile.getAbsolutePath() + newline);
+                bw.write(hexChecksum + " " + nextFile.getAbsolutePath() + newline);
             }
         } finally {
-            bwritter.close();
-            
-            
-            
-            
-            
+            bw.close();
         }
     }
 
