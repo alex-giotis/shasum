@@ -28,7 +28,7 @@ public class Main {
 
         File outputReport = new File(workingDir, "shasums.txt");
         writeChecksumReport(workingDir, fileAcceptRegex, outputReport);
-        log.info("Report saved in " + outputReport.getName());
+        log.info("Report saved by Omer in " + outputReport.getName());
 
     }
 
